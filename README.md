@@ -1,48 +1,85 @@
-# Astro Starter Kit: Basics
+# Experiment Garden
 
-```sh
-npm create astro@latest -- --template basics
+A digital garden for running communication experiments from my studio. Each experiment gets its own sandbox to grow from seedling to harvest.
+
+## Philosophy
+
+**Experiments based.** Experiments give permission to play, fail, and learn.
+
+**Process in public.** Show the work, not just the results. Document what doesn't work as much as what does.
+
+**Bounded exploration.** Max 4 active experiments. Clear containers for messy creative work.
+
+## Structure
+
+```
+src/content/experiments/
+  musings/
+    index.md          # Main experiment
+    logs/             # Weekly reflections
+    artifacts/        # Discoveries, sketches
+    resources/        # Research, inspiration
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Each experiment is a self-contained sandbox. Everything related lives together.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Workflow
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+**Saturday mornings:** Cafe sessions for tending experiments
 
-## 🚀 Project Structure
+1. Review week's scattered notes from other apps
+2. Sort insights by experiment
+3. Write markdown files in Obsidian
+4. Update experiment status as needed
 
-Inside of your Astro project, you'll see the following folders and files:
+**Content flows:** Notes app → LLM sessions → Obsidian → Astro site
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+**Experiment lifecycle:** seedling → growing → mature → harvested → dormant
+
+## Setup
+
+1. **Clone and install:**
+
+   ```bash
+   npm install
+   ```
+
+2. **Point Obsidian to content:**
+
+   - Open Obsidian
+   - "Open folder as vault"
+   - Select `src/content/`
+
+3. **Create experiment templates in Obsidian:**
+
+   ```markdown
+   ---
+   title: '{{title}}'
+   status: 'seedling'
+   startDate: { { date:YYYY-MM-DD } }
+   description: ''
+   ---
+
+   # {{title}}
+
+   ## Hypothesis
+
+   ## Approach
+
+   ## Learnings
+   ```
+
+## Run
+
+```bash
+npm run dev          # Development
+npm run build        # Production build
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Visit `/experiments` to see all experiments. Each gets its own page.
 
-## 🧞 Commands
+## Tech
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Astro** - Static site generation
+- **Content Collections** - Type-safe content management
+- **Obsidian** - WYSIWYG editing and organization
