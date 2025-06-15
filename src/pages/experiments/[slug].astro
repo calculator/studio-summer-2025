@@ -1,6 +1,6 @@
 ---
 // src/pages/experiments/[slug].astro
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -11,7 +11,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }));
 };
 
-const { experiment } = Astro.props;
+interface Props {
+  experiment: CollectionEntry<'experiments'>;
+}
+
+const { experiment } = Astro.props as Props;
 const { Content } = await experiment.render();
 
 // Format the date nicely
@@ -36,138 +40,33 @@ const daysSinceStart = Math.floor((new Date().getTime() - experiment.data.startD
     <title>{experiment.data.title} - Experiment</title>
     <style>
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            max-width: 800px;
+            font-family: system-ui, sans-serif;
+            max-width: 600px;
             margin: 0 auto;
             padding: 2rem;
-            line-height: 1.6;
+            line-height: 1.5;
         }
-        .experiment-header {
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .experiment-meta {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-            flex-wrap: wrap;
-        }
-        .meta-item {
-            background: #f8f9fa;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-        }
-        .status {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-weight: 500;
-            text-transform: capitalize;
-        }
-        .status.seedling { background: #e8f5e8; color: #2d5016; }
-        .status.growing { background: #fff3cd; color: #856404; }
-        .status.mature { background: #d4edda; color: #155724; }
-        .status.harvested { background: #d1ecf1; color: #0c5460; }
-        .status.dormant { background: #f8d7da; color: #721c24; }
-        .tags {
-            margin: 1rem 0;
-        }
-        .tag {
-            display: inline-block;
-            background: #dee2e6;
-            color: #495057;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .back-link {
-            color: #6c757d;
+        .back {
+            color: #666;
             text-decoration: none;
+        }
+        .back:hover {
+            text-decoration: underline;
+        }
+        .meta {
             font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        .back-link:hover {
-            color: #495057;
-        }
-        .content {
-            margin-top: 2rem;
-        }
-        .content h1 { margin-top: 2rem; }
-        .content h2 { 
-            margin-top: 2rem; 
-            color: #495057;
-            border-bottom: 1px solid #e9ecef;
-            padding-bottom: 0.5rem;
-        }
-        .content h3 { 
-            margin-top: 1.5rem; 
-            color: #6c757d;
-        }
-        .content blockquote {
-            border-left: 4px solid #dee2e6;
-            margin: 1.5rem 0;
-            padding-left: 1rem;
-            color: #6c757d;
-            font-style: italic;
-        }
-        .content code {
-            background: #f8f9fa;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-size: 0.9em;
-        }
-        .content pre {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 6px;
-            overflow-x: auto;
+            color: #666;
+            margin: 0.5rem 0 2rem 0;
         }
     </style>
 </head>
 <body>
-    <a href="/experiments" class="back-link">← Back to experiments</a>
+    <a href="/" class="back">← Home</a>
     
-    <div class="experiment-header">
-        <h1>{experiment.data.title}</h1>
-        
-        <div class="experiment-meta">
-            <span class={`status ${experiment.data.status}`}>
-                {experiment.data.status}
-            </span>
-            <div class="meta-item">
-                Started: {formatDate(experiment.data.startDate)}
-            </div>
-            <div class="meta-item">
-                Running for: {daysSinceStart} days
-            </div>
-            {experiment.data.communicationMedium && (
-                <div class="meta-item">
-                    Medium: {experiment.data.communicationMedium}
-                </div>
-            )}
-        </div>
-        
-        {experiment.data.description && (
-            <p><strong>Description:</strong> {experiment.data.description}</p>
-        )}
-        
-        {experiment.data.tags && experiment.data.tags.length > 0 && (
-            <div class="tags">
-                <strong>Tags:</strong>
-                {experiment.data.tags.map((tag) => (
-                    <span class="tag">{tag}</span>
-                ))}
-            </div>
-        )}
+    <div class="meta">
+        {experiment.data.status} • {formatDate(experiment.data.startDate)}
     </div>
     
-    <div class="content">
-        <Content />
-    </div>
+    <Content />
 </body>
 </html>

@@ -15,89 +15,50 @@ const sortedExperiments = experiments.sort((a, b) =>
 ---
 
 <Layout>
-	<p>Active experiments: {sortedExperiments.filter(exp => exp.data.status !== 'dormant' && exp.data.status !== 'harvested').length}</p>
+	<h1>Experiments</h1>
     
     {sortedExperiments.length === 0 ? (
-        <p>No experiments yet. Create your first experiment in Obsidian!</p>
+        <p>No experiments yet.</p>
     ) : (
-        <div class="experiments-grid">
+        <div>
             {sortedExperiments.map((experiment) => (
-                <div class="experiment-card">
+                <div class="experiment">
                     <h2>
                         <a href={`/experiments/${experiment.slug}`}>
                             {experiment.data.title}
                         </a>
                     </h2>
-                    
-                    <div class="experiment-meta">
-                        <span class={`status ${experiment.data.status}`}>
-                            {experiment.data.status}
-                        </span>
-                        <span> • Started: {experiment.data.startDate.toLocaleDateString()}</span>
-                        {experiment.data.communicationMedium && (
-                            <span> • Medium: {experiment.data.communicationMedium}</span>
-                        )}
+                    <div class="meta">
+                        {experiment.data.status} • {experiment.data.startDate.toLocaleDateString()}
                     </div>
-                    
-                    {experiment.data.description && (
-                        <p>{experiment.data.description}</p>
-                    )}
-                    
-                    {experiment.data.tags && experiment.data.tags.length > 0 && (
-                        <div class="tags">
-                            {experiment.data.tags.map((tag) => (
-                                <span class="tag">{tag}</span>
-                            ))}
-                        </div>
-                    )}
                 </div>
             ))}
         </div>
     )}
 		<style>
-			body {
-					font-family: system-ui, -apple-system, sans-serif;
-					max-width: 800px !important;
-					margin: 0 auto;
-					padding: 2rem;
-					line-height: 1.6;
-			}
-			.experiment-card {
-					border: 1px solid #e0e0e0;
-					border-radius: 8px;
-					padding: 1.5rem;
-					margin-bottom: 1.5rem;
-					background: #fafafa;
-			}
-			.status {
-					display: inline-block;
-					padding: 0.25rem 0.75rem;
-					border-radius: 4px;
-					font-size: 0.875rem;
-					font-weight: 500;
-					text-transform: capitalize;
-			}
-			.status.seedling { background: #e8f5e8; color: #2d5016; }
-			.status.growing { background: #fff3cd; color: #856404; }
-			.status.mature { background: #d4edda; color: #155724; }
-			.status.harvested { background: #d1ecf1; color: #0c5460; }
-			.status.dormant { background: #f8d7da; color: #721c24; }
-			.experiment-meta {
-					color: #666;
-					font-size: 0.9rem;
-					margin: 0.5rem 0;
-			}
-			.tags {
-					margin-top: 1rem;
-			}
-			.tag {
-					display: inline-block;
-					background: #e9ecef;
-					color: #495057;
-					padding: 0.25rem 0.5rem;
-					border-radius: 3px;
-					font-size: 0.8rem;
-					margin-right: 0.5rem;
-			}
+		 body {
+            font-family: system-ui, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+        .experiment {
+            margin-bottom: 2rem;
+        }
+        .experiment h2 {
+            margin: 0 0 0.25rem 0;
+        }
+        .experiment a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .experiment a:hover {
+            text-decoration: underline;
+        }
+        .meta {
+            font-size: 0.9rem;
+            color: #666;
+        }
 	</style>
 </Layout>
