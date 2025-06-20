@@ -1,5 +1,5 @@
 ---
-// src/pages/experiments/[slug].astro
+// src/pages/experiments/[...slug].astro
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 
@@ -26,9 +26,6 @@ const formatDate = (date: Date) => {
     day: 'numeric' 
   });
 };
-
-// Calculate days since start
-const daysSinceStart = Math.floor((new Date().getTime() - experiment.data.startDate.getTime()) / (1000 * 60 * 60 * 24));
 ---
 
 <html lang="en">
@@ -63,10 +60,12 @@ const daysSinceStart = Math.floor((new Date().getTime() - experiment.data.startD
 <body>
     <a href="/" class="back">← Home</a>
     
-    <div class="meta">
-        {experiment.data.status} • {formatDate(experiment.data.startDate)}
-    </div>
+    {experiment.data.status && experiment.data.startDate && (
+        <div class="meta">
+            {experiment.data.status} • {formatDate(experiment.data.startDate)}
+        </div>
+    )}
     
     <Content />
 </body>
-</html>
+</html> 
