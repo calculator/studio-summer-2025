@@ -10,6 +10,7 @@ import icehand from '../../assets/images/icehand.png';
 import snail from '../../assets/images/snail.png';
 import flower from '../../assets/images/flower.png';
 import match from '../../assets/images/match.png';
+import thefeltsense from '../../assets/images/thefeltsense.png';
 ---
 
 <html lang="en">
@@ -50,14 +51,23 @@ import match from '../../assets/images/match.png';
           padding: 2rem;
       }
 
+      img.thefeltsense {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 15vw;
+        height: auto;
+      }
+
       .entry-object {
           position: absolute;
-          width: 80px;
-          height: 80px;
+          width: 140px;
+          height: 140px;
           cursor: pointer;
-          transition: all 0.4s ease;
+          transition: all 0.4s ease-in-out;
           opacity: 0.7;
-          filter: blur(0.5px);
+          filter: blur(0);
+          transform: scale(1.0);
       }
 
       .entry-object:hover {
@@ -84,15 +94,15 @@ import match from '../../assets/images/match.png';
       }
 
       /* Entry object positions - scattered naturally */
-      .entry-object:nth-child(1) { top: 20%; left: 25%; }
-      .entry-object:nth-child(2) { top: 15%; right: 30%; }
-      .entry-object:nth-child(3) { top: 40%; left: 15%; }
-      .entry-object:nth-child(4) { top: 35%; right: 20%; }
-      .entry-object:nth-child(5) { top: 60%; left: 30%; }
-      .entry-object:nth-child(6) { top: 55%; right: 35%; }
-      .entry-object:nth-child(7) { top: 75%; left: 20%; }
-      .entry-object:nth-child(8) { top: 70%; right: 25%; }
-      .entry-object:nth-child(9) { bottom: 15%; left: 45%; }
+      .entry-object.bell { top: 15%; left: 30%; }
+      .entry-object.ladder { top: 15%; right: 30%; }
+      .entry-object.whip { top: 40%; left: 15%; }
+      .entry-object.balloonheart { top: 35%; right: 18%; }
+      .entry-object.raccoon { top: 45%; left: 35%; }
+      .entry-object.icehand { top: 47%; right: 35%; }
+      .entry-object.snail { top: 69%; left: 20%; }
+      .entry-object.flower { top: 70%; right: 25%; }
+      .entry-object.match { bottom: 10%; left: 45%; }
 
       .entry-hint {
           position: absolute;
@@ -230,57 +240,58 @@ import match from '../../assets/images/match.png';
 <body>
     <!-- Garden View -->
     <div id="garden">
-      <!-- Entry 1: Hot Metal -->
-      <div class="entry-object" data-entry="1">
-          <div class="placeholder" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);"><Image src={match} alt="match" /></div>
+      <a href=""><Image src={thefeltsense} alt="thefeltsense" class="thefeltsense" /></a>
+      <!-- Entry 1: Bell -->
+      <div class="entry-object bell" data-entry="1">
+          <div class="placeholder" ><Image src={bell} alt="bell" /></div>
           <div class="entry-hint">There's a sharp pain when I think about sharing</div>
       </div>
 
-      <!-- Entry 2: Blueprint -->
-      <div class="entry-object" data-entry="2">
-          <div class="placeholder" style="background: linear-gradient(135deg, #4ecdc4, #44a3aa);">📐</div>
+      <!-- Entry 2: Ladder -->
+      <div class="entry-object ladder" data-entry="2">
+          <div class="placeholder" ><Image src={ladder} alt="ladder" /></div>
           <div class="entry-hint">I build elaborate systems to avoid simple feelings</div>
       </div>
 
-      <!-- Entry 3: Silk Whip -->
-      <div class="entry-object" data-entry="3">
-          <div class="placeholder" style="background: linear-gradient(135deg, #a8e6cf, #7fcdbb);">🎭</div>
+      <!-- Entry 3: Whip -->
+      <div class="entry-object whip" data-entry="3">
+          <div class="placeholder" ><Image src={whip} alt="whip" /></div>
           <div class="entry-hint">I can't stop lashing myself forward</div>
       </div>
 
-      <!-- Entry 4: Frozen Hummingbird -->
-      <div class="entry-object" data-entry="4">
-          <div class="placeholder" style="background: linear-gradient(135deg, #ffd93d, #ffb319);">⚡</div>
+      <!-- Entry 4: Balloon Heart -->
+      <div class="entry-object balloonheart" data-entry="4">
+          <div class="placeholder" ><Image src={balloonheart} alt="balloonheart" /></div>
           <div class="entry-hint">Joy feels like a heart attack</div>
       </div>
 
       <!-- Entry 5: Raccoon -->
-      <div class="entry-object" data-entry="5">
-          <div class="placeholder" style="background: linear-gradient(135deg, #636e72, #2d3436);">🦝</div>
+      <div class="entry-object raccoon" data-entry="5">
+          <div class="placeholder" ><Image src={raccoon} alt="raccoon" /></div>
           <div class="entry-hint">My body rebels when I ignore myself</div>
       </div>
 
-      <!-- Entry 6: Melting Ice -->
-      <div class="entry-object" data-entry="6">
-          <div class="placeholder" style="background: linear-gradient(135deg, #74b9ff, #a29bfe);">🧊</div>
+      <!-- Entry 6: Ice Hand -->
+      <div class="entry-object icehand" data-entry="6">
+          <div class="placeholder"><Image src={icehand} alt="icehand" /></div>
           <div class="entry-hint">I've been frozen in self-reliance</div>
       </div>
 
-      <!-- Entry 7: Spinning Compass -->
-      <div class="entry-object" data-entry="7">
-          <div class="placeholder" style="background: linear-gradient(135deg, #fd79a8, #e84393);">🧭</div>
+      <!-- Entry 7: Snail -->
+      <div class="entry-object snail" data-entry="7">
+          <div class="placeholder" ><Image src={snail} alt="snail" /></div>
           <div class="entry-hint">I feel like I don't belong anywhere</div>
       </div>
 
-      <!-- Entry 8: Door Ajar -->
-      <div class="entry-object" data-entry="8">
-          <div class="placeholder" style="background: linear-gradient(135deg, #fdcb6e, #f39c12);">🚪</div>
+      <!-- Entry 8: Flower -->
+      <div class="entry-object flower" data-entry="8">
+          <div class="placeholder"><Image src={flower} alt="flower" /></div>
           <div class="entry-hint">I abandon things right before they bloom</div>
       </div>
 
-      <!-- Entry 9: Cracking Dam -->
-      <div class="entry-object" data-entry="9">
-          <div class="placeholder" style="background: linear-gradient(135deg, #6c5ce7, #5f27cd);">🌊</div>
+      <!-- Entry 9: Match -->
+      <div class="entry-object match" data-entry="9">
+          <div class="placeholder"><Image src={match} alt="match" /></div>
           <div class="entry-hint">Anger feels like drowning</div>
       </div>
   </div>
