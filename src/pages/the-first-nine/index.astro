@@ -1,11 +1,22 @@
 ---
 // src/pages/the-first-nine/index.astro
+import { Image } from 'astro:assets';
+import bell from '../../assets/images/bell.png';
+import ladder from '../../assets/images/ladder.png';
+import whip from '../../assets/images/whip.png';
+import balloonheart from '../../assets/images/balloonheart.png';
+import raccoon from '../../assets/images/raccoon.png';
+import icehand from '../../assets/images/icehand.png';
+import snail from '../../assets/images/snail.png';
+import flower from '../../assets/images/flower.png';
+import match from '../../assets/images/match.png';
 ---
 
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://use.typekit.net/umi0akb.css">
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Garden of Nine Entries</title>
@@ -17,13 +28,17 @@
       }
 
       body {
-          font-family: 'Georgia', serif;
-          background: #e8e5e0;
-          color: #2a2a2a;
+          font-family: "gelica", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          background: #d6b593;
+          color: #634C36;
           min-height: 100vh;
           overflow-x: hidden;
           transition: background 0.5s ease;
       }
+
+      
 
       /* Garden View */
       #garden {
@@ -89,7 +104,7 @@
           transition: opacity 0.3s ease;
           white-space: nowrap;
           font-style: italic;
-          color: #666;
+   
       }
 
       .entry-object:hover .entry-hint {
@@ -101,8 +116,7 @@
           display: none;
           min-height: 100vh;
           padding: 4rem 2rem;
-          max-width: 650px;
-          margin: 0 auto;
+          
           animation: fadeIn 0.8s ease;
       }
 
@@ -110,8 +124,15 @@
           display: block;
       }
 
+      .entry-container {
+        max-width: 650px;
+        margin: 4rem auto;
+      }
+
       .entry-title {
           font-size: 1.8rem;
+          font-weight: 500;
+          font-style: italic;
           margin-bottom: 0.5rem;
           opacity: 0;
           animation: revealText 1s ease 0.3s forwards;
@@ -119,7 +140,7 @@
 
       .entry-subtitle {
           font-style: italic;
-          color: #666;
+          color: #634c36b4;
           margin-bottom: 3rem;
           opacity: 0;
           animation: revealText 1s ease 0.6s forwards;
@@ -131,25 +152,26 @@
           animation: revealText 1s ease 0.9s forwards;
       }
 
-      .entry-body p {
+      :global(.entry-body p) {
           margin-bottom: 1.5rem;
+          padding-left: 1.5rem;
       }
 
-      .poem {
-          font-family: 'Courier New', monospace;
-          background: rgba(255, 255, 255, 0.3);
-          padding: 1.5rem;
+      :global(.poem) {
+          background: #E9D0B7;
+          padding: 1.5rem 2rem;
+          line-height: 1.8;
           margin: 2rem 0;
           border-left: 3px solid #999;
           white-space: pre-line;
       }
 
       /* Breathing text effect */
-      .breathe {
+      :global(.breathe) {
           animation: breathe 4s ease-in-out infinite;
       }
 
-      @keyframes breathe {
+      :global(.@keyframes breathe) {
           0%, 100% { transform: scale(1); }
           50% { transform: scale(1.02); }
       }
@@ -210,7 +232,7 @@
     <div id="garden">
       <!-- Entry 1: Hot Metal -->
       <div class="entry-object" data-entry="1">
-          <div class="placeholder" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);">🔥</div>
+          <div class="placeholder" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);"><Image src={match} alt="match" /></div>
           <div class="entry-hint">There's a sharp pain when I think about sharing</div>
       </div>
 
@@ -267,7 +289,9 @@
   <div class="entry-content" id="entryContent">
       <h1 class="entry-title breathe"></h1>
       <p class="entry-subtitle"></p>
-      <div class="entry-body"></div>
+      <div class="entry-container">
+        <div class="entry-body"></div>
+      </div>
       <div class="return-prompt">Take a breath to return to the garden</div>
   </div>
 
@@ -277,7 +301,7 @@
           1: {
               title: "There's a sharp pain when I think about sharing",
               subtitle: "The body knows what the mind denies",
-              content: `Hot metal slashes across my stomach when I consider being seen. The internet feels like a church basement where questions meant rejection, where David with his glasses tallied our scripture failures, where shame became the only prayer I knew.
+              content: `<p>Hot metal slashes across my stomach when I consider being seen. The internet feels like a church basement where questions meant rejection, where David with his glasses tallied our scripture failures, where shame became the only prayer I knew.</p>
 
 <div class="poem">My head is filled with church bells
 Signaling a joyous day. 
@@ -289,9 +313,9 @@ I am a walking vibration of abuses.
 They line up at my door seeking their due,
 Saying, Joy sent me here.</div>
 
-The body remembers: throat clenched, jaw locked, neck turning away. Each muscle holds a story of the times I couldn't ask, couldn't speak, couldn't risk being cast out. Now when I think of sharing, my flesh puckers like fruit left too long in the sun.
+<p>The body remembers: throat clenched, jaw locked, neck turning away. Each muscle holds a story of the times I couldn't ask, couldn't speak, couldn't risk being cast out. Now when I think of sharing, my flesh puckers like fruit left too long in the sun.</p>
 
-But here's the medicine: What I'm most reluctant to share carries healing proportional to my resistance. The body knows before the mind admits. These sensations aren't warnings—they're invitations wearing fear's familiar costume.`
+<p>But here's the medicine: What I'm most reluctant to share carries healing proportional to my resistance. The body knows before the mind admits. These sensations aren't warnings—they're invitations wearing fear's familiar costume.</p>`
           },
           2: {
               title: "I build elaborate systems to avoid simple feelings",
@@ -493,36 +517,84 @@ The truth that changes everything: If you're scared of feeling an emotion, you'r
           }
       };
 
+      // Function to show an entry by number
+      function showEntry(entryNum: string) {
+          const entryKey = parseInt(entryNum) as keyof typeof entries;
+          const entry = entries[entryKey];
+          if (!entry) return;
+          
+          // Update content
+          const titleEl = document.querySelector('.entry-title');
+          const subtitleEl = document.querySelector('.entry-subtitle');
+          const bodyEl = document.querySelector('.entry-body');
+          
+          if (titleEl) titleEl.textContent = entry.title;
+          if (subtitleEl) subtitleEl.textContent = entry.subtitle;
+          if (bodyEl) bodyEl.innerHTML = entry.content;
+          
+          // Show entry, hide garden
+          const gardenEl = document.getElementById('garden');
+          const contentEl = document.getElementById('entryContent');
+          
+          if (gardenEl) gardenEl.style.display = 'none';
+          if (contentEl) contentEl.classList.add('active');
+          
+          // Scroll to top
+          window.scrollTo(0, 0);
+      }
+
+      // Function to show the garden view
+      function showGarden() {
+          const gardenEl = document.getElementById('garden');
+          const contentEl = document.getElementById('entryContent');
+          
+          if (gardenEl) gardenEl.style.display = 'flex';
+          if (contentEl) contentEl.classList.remove('active');
+      }
+
+      // Function to handle URL hash changes
+      function handleHashChange() {
+          const hash = window.location.hash;
+          
+          if (hash.startsWith('#entry-')) {
+              const entryNum = hash.replace('#entry-', '');
+              showEntry(entryNum);
+          } else {
+              showGarden();
+          }
+      }
+
       // Handle entry clicks
       document.querySelectorAll('.entry-object').forEach(obj => {
-          obj.addEventListener('click', function() {
+          obj.addEventListener('click', function(this: HTMLElement) {
               const entryNum = this.dataset.entry;
-              const entry = entries[entryNum];
-              
-              // Update content
-              document.querySelector('.entry-title').textContent = entry.title;
-              document.querySelector('.entry-subtitle').textContent = entry.subtitle;
-              document.querySelector('.entry-body').innerHTML = entry.content;
-              
-              // Show entry, hide garden
-              document.getElementById('garden').style.display = 'none';
-              document.getElementById('entryContent').classList.add('active');
-              
-              // Scroll to top
-              window.scrollTo(0, 0);
+              // Update URL hash to trigger navigation
+              window.location.hash = `entry-${entryNum}`;
           });
       });
 
       // Return to garden
-      document.querySelector('.return-prompt').addEventListener('click', function() {
-          document.getElementById('garden').style.display = 'flex';
-          document.getElementById('entryContent').classList.remove('active');
+      const returnPrompt = document.querySelector('.return-prompt');
+      if (returnPrompt) {
+          returnPrompt.addEventListener('click', function() {
+              // Clear the hash to return to garden
+              window.location.hash = '';
+          });
+      }
+
+      // Listen for hash changes (back/forward navigation)
+      window.addEventListener('hashchange', handleHashChange);
+
+      // Handle initial page load - check if there's a hash
+      document.addEventListener('DOMContentLoaded', function() {
+          handleHashChange();
       });
 
       // Subtle floating animation for objects
       document.querySelectorAll('.entry-object').forEach((obj, i) => {
-          obj.style.animation = `float ${3 + i * 0.5}s ease-in-out infinite`;
-          obj.style.animationDelay = `${i * 0.2}s`;
+          const htmlObj = obj as HTMLElement;
+          htmlObj.style.animation = `float ${3 + i * 0.5}s ease-in-out infinite`;
+          htmlObj.style.animationDelay = `${i * 0.2}s`;
       });
 
       // Add floating keyframe
