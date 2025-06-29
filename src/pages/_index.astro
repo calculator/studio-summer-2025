@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// src/pages/experiments.astro
+import { getCollection } from 'astro:content';
+
+// Get all experiments
+const experiments = await getCollection('experiments');
+
+// Sort by start date (newest first)
+const sortedExperiments = experiments.sort((a, b) => 
+  new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime()
+);
+---
+
+<Layout>
+	<h1>Experiments</h1>
+    
+    {sortedExperiments.length === 0 ? (
+        <p>No experiments yet.</p>
+    ) : (
+        <div>
+            {sortedExperiments.map((experiment) => (
+                <div class="experiment">
+                    <h2>
+                        <a href={`/experiments/${experiment.slug}`}>
+                            {experiment.data.title}
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        {experiment.data.status} • {experiment.data.startDate.toLocaleDateString()}
+                    </div>
+                </div>
+            ))}
+        </div>
+    )}
+		<style>
+		 body {
+            font-family: system-ui, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+        .experiment {
+            margin-bottom: 2rem;
+        }
+        .experiment h2 {
+            margin: 0 0 0.25rem 0;
+        }
+        .experiment a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .experiment a:hover {
+            text-decoration: underline;
+        }
+        .meta {
+            font-size: 0.9rem;
+            color: #666;
+        }
+	</style>
+</Layout>

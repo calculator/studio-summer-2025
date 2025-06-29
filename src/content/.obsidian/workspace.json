@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "experiments/test-project/index.md",
+                "file": "templates/experiment-starter.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "experiment-starter"
             }
           }
         ],
@@ -185,6 +185,13 @@
   },
   "active": "e9f52cc38d9fea43",
   "lastOpenFiles": [
+    "the-first-nine/index.mdx",
+    "the-first-nine/index.md",
+    "the-first-nine/nine-entries.md",
+    "the-first-nine/nine-entries.html",
+    "the-first-nine",
+    "nine-stories",
+    "experiments/test-project/index.md",
     "experiments/felt-sense/entry-point-8.md",
     "experiments/felt-sense/entry-point-6.md",
     "experiments/felt-sense/entry-point-10.md",
@@ -207,10 +214,6 @@
     "experiments/felt-sense-entry-point-2.md",
     "experiments/felt-sense-entry-point-1.md",
     "experiments/felt-sense-index.md",
-    "experiments/felt-sense/felt-sense-map-v2.md",
-    "experiments/felt-sense/_felt-sense-map-v2.md",
-    "experiments/test-project/index.md",
-    "experiments/spring-garden-2025/1.md",
     "experiments/felt-sense",
     "experiments/spring-garden-2025",
     "Untitled.canvas",
