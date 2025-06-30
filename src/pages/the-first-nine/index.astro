@@ -33,6 +33,7 @@ import birdsign from '../../assets/images/birdsign.png';
           font-family: "gelica", sans-serif;
           font-weight: 400;
           font-style: normal;
+          letter-spacing: -0.02em;
           background: #d6b593;
           color: #634C36;
           min-height: 100vh;
@@ -136,20 +137,24 @@ import birdsign from '../../assets/images/birdsign.png';
       }
 
       .entry-container {
-        max-width: 650px;
+        max-width: 600px;
         margin: 4rem auto;
       }
 
       .entry-title {
-          font-size: 1.8rem;
+          font-size: 2rem;
           font-weight: 500;
           font-style: italic;
+          line-height: 1.1;
           margin-bottom: 0.5rem;
+          margin-left: 5vw;
           opacity: 0;
+          max-width: 450px;
           animation: revealText 1s ease 0.3s forwards;
       }
 
       .entry-subtitle {
+        margin-left: 5vw;
           font-style: italic;
           color: #634c36b4;
           margin-bottom: 3rem;
@@ -326,7 +331,7 @@ import birdsign from '../../assets/images/birdsign.png';
       <div class="entry-container">
         <div class="entry-body"></div>
       </div>
-      <div class="return-prompt"><Image src={birdsign} alt="birdsign" /><div>Take a breath to return to the garden</div></div>
+      <div class="return-prompt"><Image src={birdsign} alt="birdsign" /><div>Take a breath, return to garden</div></div>
   </div>
 
   <script>
@@ -354,7 +359,7 @@ Saying, Joy sent me here.</div>
           2: {
               title: "I build elaborate systems to avoid simple feelings",
               subtitle: "The architecture of avoidance",
-              content: `I've become an architect of beautiful prisons, each framework more elegant than the last. My constraints offer a type of hug—pressure that feels safe but carries winter's touch. I search for the perfect structure like a moth seeking the moon, believing if I could only find it, then relief.
+              content: `<p>I've become an architect of beautiful prisons, each framework more elegant than the last. My constraints offer a type of hug—pressure that feels safe but carries winter's touch. I search for the perfect structure like a moth seeking the moon, believing if I could only find it, then relief.</p>
 
 <div class="poem">Symbols latch my eye
 with hyper color hooks.
@@ -376,7 +381,7 @@ It's so nice to be held back
 from the electric possibility 
 of becoming all of me.</div>
 
-The truth: This garden isn't about artifacts but about cultivating soil where inner dialogue transforms. Structure and emergence must dance, not battle. The map was never the territory.`
+<p>The truth: This garden isn't about artifacts but about cultivating soil where inner dialogue transforms. Structure and emergence must dance, not battle. The map was never the territory.</p>`
           },
           3: {
               title: "I can't stop lashing myself forward",
@@ -392,9 +397,9 @@ because it
 takes me
 where i think i want to go</div>
 
-The critic speaks with sugar-coated venom, sweet in intention but corrosive in method. There's nothing it says that's fully true—just partial truths weaponized against wholeness. You wouldn't keep a boss who managed like this voice manages you.
+<p>The critic speaks with sugar-coated venom, sweet in intention but corrosive in method. There's nothing it says that's fully true—just partial truths weaponized against wholeness. You wouldn't keep a boss who managed like this voice manages you.</p>
 
-Tools become weapons when wielded for improvement. The moment I use them to "get better," they lose their magic. Love drains out, leaving only the hollow ring of should.
+<p>Tools become weapons when wielded for improvement. The moment I use them to "get better," they lose their magic. Love drains out, leaving only the hollow ring of should.</p>
 
 <div class="poem">the young woman
 slams shut her laptop
@@ -404,16 +409,16 @@ through desperate smiling frustration
 her friend responds,
 "you love its purpose."</div>
 
-The revelation: Enjoyment leaves you with more energy than you began with. Each experiment asks only one question: How can I enjoy this 10% more? 
+<p>The revelation: Enjoyment leaves you with more energy than you began with. Each experiment asks only one question: How can I enjoy this 10% more? </p>
 
-The work is its own reward. Just add connection.`
+<p>The work is its own reward. Just add connection.</p>`
           },
           4: {
               title: "Joy feels like a heart attack",
               subtitle: "When expansion threatens identity",
-              content: `Big heartfelt joy arrives like a tidal wave threatening sandcastles I've spent decades building. The feelings expand beyond what the idea of self can contain. I become a speck of dust in an ocean of joy—unmoored, undefined, undone.
+              content: `<p>Big heartfelt joy arrives like a tidal wave threatening sandcastles I've spent decades building. The feelings expand beyond what the idea of self can contain. I become a speck of dust in an ocean of joy—unmoored, undefined, undone.</p>
 
-Fear of excitement means I'm already excited. The heart attack I imagine is actually my heart breaking open.
+<p>Fear of excitement means I'm already excited. The heart attack I imagine is actually my heart breaking open.</p>
 
 <div class="poem">Two possums
 havin' a disagreement 
@@ -427,7 +432,7 @@ I'm bottomless!"
 The night is warm and windy,
 joy spills over the cup of my heart.</div>
 
-We know ourselves by contrast. In joy, the boundaries dissolve. Who am I in this? What remains when the walls come down?
+<p>We know ourselves by contrast. In joy, the boundaries dissolve. Who am I in this? What remains when the walls come down?</p>
 
 <div class="poem">Has anything
 you've ever loved
@@ -441,47 +446,47 @@ earnestly home.
 Your Soul invites friendship
 with even that part of you.</div>
 
-The glimmers grow: colorful joy appearing when the try-hard relaxes, pleasure arriving unabashed. Without fear, there's enough. It floods in when I'm vulnerable with my excitement.`
+<p>The glimmers grow: colorful joy appearing when the try-hard relaxes, pleasure arriving unabashed. Without fear, there's enough. It floods in when I'm vulnerable with my excitement.</p>`
           },
           5: {
               title: "My body rebels when I ignore myself",
               subtitle: "GERD, raccoons, and midnight messages",
-              content: `The raccoon peers through the sliding door at 3 AM—my wild self watching my domesticated self ignore all the signals. My body sends increasingly urgent messages: GERD burns when I swallow my words, exhaustion weighs when I carry what isn't mine, the stomach churns with undigested experiences.
+              content: `<p>The raccoon peers through the sliding door at 3 AM—my wild self watching my domesticated self ignore all the signals. My body sends increasingly urgent messages: GERD burns when I swallow my words, exhaustion weighs when I carry what isn't mine, the stomach churns with undigested experiences.</p>
 
 <div class="poem">The body groans. 
 Relax relax relax. 
 What if it were easy?
 What if you got to be a part of a team?</div>
 
-Disconnection tastes like late-night scrolling, like making projects to be seen rather than to see. Connection tastes like saying yes to relationship, like sharing experiments just to watch what grows.
+<p>Disconnection tastes like late-night scrolling, like making projects to be seen rather than to see. Connection tastes like saying yes to relationship, like sharing experiments just to watch what grows.</p>
 
-The medicine is always movement. Thirteen miles on the bike to let anger dissipate through my legs. Or simpler: blanket on earth, letting the ground hold what I cannot. The young parts need space more than solutions.
+<p>The medicine is always movement. Thirteen miles on the bike to let anger dissipate through my legs. Or simpler: blanket on earth, letting the ground hold what I cannot. The young parts need space more than solutions.</p>
 
-My body knows before my mind admits. Each symptom is a teacher speaking in sensation's mother tongue.`
+<p>My body knows before my mind admits. Each symptom is a teacher speaking in sensation's mother tongue.</p>`
           },
           6: {
               title: "I've been frozen in self-reliance",
               subtitle: "The glacier and the thaw",
-              content: `The glacier took decades to form: Dad absent, Mom overwhelmed. "I'll figure it out myself" became my frozen mantra. Each layer of ice a protection against the helplessness of needing.
+              content: `<p>The glacier took decades to form: Dad absent, Mom overwhelmed. "I'll figure it out myself" became my frozen mantra. Each layer of ice a protection against the helplessness of needing.</p>
 
-Then the Lexus breaks down in Dripping Springs. $435 for a tow. The whole elaborate system—buying reliable trucks, maintaining them obsessively, avoiding the need for help—collapses with an alternator's death.
+<p>Then the Lexus breaks down in Dripping Springs. $435 for a tow. The whole elaborate system—buying reliable trucks, maintaining them obsessively, avoiding the need for help—collapses with an alternator's death.</p>
 
-The tow truck driver builds supercharged Harleys. Has a network he calls without thinking. "People helping people," he says, like it's the most natural thing. His ease illuminates my disease.
+<p>The tow truck driver builds supercharged Harleys. Has a network he calls without thinking. "People helping people," he says, like it's the most natural thing. His ease illuminates my disease.</p>
 
-There's a part that loves the crisis, gets high on the anguish, feels alive tasting how unsafe the world can be. At least in breakdown, the ice cracks.
+<p>There's a part that loves the crisis, gets high on the anguish, feels alive tasting how unsafe the world can be. At least in breakdown, the ice cracks.</p>
 
-The paradox: My pattern of over-designing without inviting people in was meant to ensure independence. But reliance is freedom. Helplessness—that close cousin of surrender—is the most potent change agent for self-reliance.
+<p>The paradox: My pattern of over-designing without inviting people in was meant to ensure independence. But reliance is freedom. Helplessness—that close cousin of surrender—is the most potent change agent for self-reliance.</p>
 
-We're healed in relationship. The glacier melts drop by drop, each request for help a small spring arriving.`
+<p>We're healed in relationship. The glacier melts drop by drop, each request for help a small spring arriving.</p>`
           },
           7: {
               title: "I feel like I don't belong anywhere",
               subtitle: "The nomad's longing",
-              content: `Between contexts, I speak many languages but feel native to none. Aesthetics in one camp, emotional fitness in another, technical fluency in a third. Digitally culturally spiritually homeless, carrying my ache like a passport to nowhere.
+              content: `<p>Between contexts, I speak many languages but feel native to none. Aesthetics in one camp, emotional fitness in another, technical fluency in a third. Digitally culturally spiritually homeless, carrying my ache like a passport to nowhere.</p>
 
-This loneliness—I've made it special, a designer pain no one else could possibly own. But giving up the special means joining humanity. The knot in my gut loosens when I whisper: "Just like everyone else, I feel this."
+<p>This loneliness—I've made it special, a designer pain no one else could possibly own. But giving up the special means joining humanity. The knot in my gut loosens when I whisper: "Just like everyone else, I feel this."</p>
 
-I've touched the bottom of aloneness and found, surprisingly, joy stirring in the depths. The belief that I'm a mistake plays across reality only because I insist on the performance.
+<p>I've touched the bottom of aloneness and found, surprisingly, joy stirring in the depths. The belief that I'm a mistake plays across reality only because I insist on the performance.</p>
 
 <div class="poem">Patience is the slow unraveling
 of an urgent tangle,
@@ -495,14 +500,14 @@ nowhere else to be
 in the living room
 of Soul.</div>
 
-There's a home in artists' hearts—my siblings, my champions, my kin. The love of it is almost too much to feel. But here's the secret: I've been home all along. This garden is my practice of belonging to myself.`
+<p>There's a home in artists' hearts—my siblings, my champions, my kin. The love of it is almost too much to feel. But here's the secret: I've been home all along. This garden is my practice of belonging to myself.</p>`
           },
           8: {
               title: "I abandon things right before they bloom",
               subtitle: "The threshold dance",
-              content: `I wait until pain becomes unbearable before clarifying what I want. Then I move toward it slowly, numbing again, until discomfort forces another burst of clarity. It's exhausting, this threshold dance—approaching breakthrough then retreating to safety.
+              content: `<p>I wait until pain becomes unbearable before clarifying what I want. Then I move toward it slowly, numbing again, until discomfort forces another burst of clarity. It's exhausting, this threshold dance—approaching breakthrough then retreating to safety.</p>
 
-There's strange satisfaction in staying insignificant. It protects me from engaging with what I'm here to channel.
+<p>There's strange satisfaction in staying insignificant. It protects me from engaging with what I'm here to channel.</p>
 
 <div class="poem">Something is shifting 
 The gates are moving
@@ -522,22 +527,22 @@ Open up
 Speak to those who hear the call
 It lives in relationship</div>
 
-The skipping-ahead pattern: Learn to coach before coaching, lead before being led. Always jumping stages to avoid the vulnerability of being a beginner.
+<p>The skipping-ahead pattern: Learn to coach before coaching, lead before being led. Always jumping stages to avoid the vulnerability of being a beginner.</p>
 
-But projects aren't containers for achievement—they're vessels for evolution. Have a light hand. Risk their loss. What matters will survive the harvest.
+<p>But projects aren't containers for achievement—they're vessels for evolution. Have a light hand. Risk their loss. What matters will survive the harvest.</p>
 
-It takes as long as it takes.`
+<p>It takes as long as it takes.</p>`
           },
           9: {
               title: "Anger feels like drowning",
               subtitle: "The dam and the flow",
-              content: `Behind the dam: decades of swallowed fire. I needed loving attention and got shame and grief and scolding. Now anger feels like drowning because I've forgotten how to swim in my own truth.
+              content: `<p>Behind the dam: decades of swallowed fire. I needed loving attention and got shame and grief and scolding. Now anger feels like drowning because I've forgotten how to swim in my own truth.</p>
 
-The symptoms of repression: extreme self-talk, isolation that can't be soothed, feeling uncontainable, taking up too much space. My body speaks what my voice won't.
+<p>The symptoms of repression: extreme self-talk, isolation that can't be soothed, feeling uncontainable, taking up too much space. My body speaks what my voice won't.</p>
 
-Then Kristen offers: "I see your anger and don't judge you." 
+<p>Then Kristen offers: "I see your anger and don't judge you." </p>
 
-Something fundamental shifts. I rant in text, move like a maniac, scream into pillows. Not dramatic. Just necessary. Immediate clarity after.
+<p>Something fundamental shifts. I rant in text, move like a maniac, scream into pillows. Not dramatic. Just necessary. Immediate clarity after.</p>
 
 <div class="poem">The ocean as loving awareness. 
 Everything made of the same stuff. 
@@ -545,9 +550,9 @@ Infinite abundance.
 Don't need to hold onto any particular aspect of any of it, 
 there's so much.</div>
 
-Emotions are weather systems, not binding contracts. On anger's backside: clarity. Behind helplessness: empowerment. After sadness: relief.
+<p>Emotions are weather systems, not binding contracts. On anger's backside: clarity. Behind helplessness: empowerment. After sadness: relief.</p>
 
-The truth that changes everything: If you're scared of feeling an emotion, you're already in it.`
+<p>The truth that changes everything: If you're scared of feeling an emotion, you're already in it.</p>`
           }
       };
 
