@@ -14,6 +14,7 @@ import thefeltsense from '../../assets/images/thefeltsense.png';
 import birdsign from '../../assets/images/birdsign.png';
 import star from '../../assets/images/star.png';
 import background from '../../assets/images/background.png';
+import ohhand from '../../assets/images/ohhand.png';
 ---
 
 <html lang="en">
@@ -35,7 +36,7 @@ import background from '../../assets/images/background.png';
           font-family: "gelica", sans-serif;
           font-weight: 400;
           font-style: normal;
-          letter-spacing: -0.02em;
+          letter-spacing: -0.03em;
           background: #d6b593;
           color: #634C36;
           min-height: 100vh;
@@ -284,6 +285,110 @@ import background from '../../assets/images/background.png';
               padding: 2rem 1rem;
           }
       }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0; top: 0;
+        width: 100vw; height: 100vh;
+        background: inherit;
+        align-items: flex-start;
+        justify-content: center;
+        animation: fadeIn 0.6s ease;
+        overflow-y: auto;
+      }
+      .modal.active {
+        display: flex;
+        animation: fadeIn 0.8s ease;
+      }
+      .modal-content {
+        border-radius: 0;
+        padding: 0 2rem;
+        width: 100vw;
+        min-height: 100vh;
+        position: relative;
+        animation: fadeIn 0.8s ease;
+        font-style: italic;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        opacity: 0;
+        animation: revealText .9s ease 0.8s forwards;
+      }
+      
+      .close-modal {
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          cursor: pointer;
+          font-style: italic;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          animation: revealText 1s ease 1.4s forwards;
+      }
+
+      .close-modal img {
+          width: 10vw;
+          height: auto;
+          opacity: 0.5;
+          transition: opacity 0.3s ease;
+          
+      }
+      .close-modal div {
+        width: 100px;
+        padding-top: 1rem;
+        padding-right: 1.5rem;
+        margin-left: -1rem;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+      }
+
+      .close-modal:hover {
+          color: #4a3522;
+      }
+      .close-modal:hover img, .close-modal:hover div {
+          opacity: 1;
+      }
+
+      .modal-image {
+        width: 100px;
+        display: block;
+        margin: 0 auto 1.5rem auto;
+      }
+      .modal-text {
+        max-width: 520px;
+        margin: 4rem auto;
+        margin-top: 0;
+      }
+      .modal-text p {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        text-align: center;
+        line-height: 1.6;
+      }
+      .modal-poem {
+        background: #E9D0B7;
+        padding: 1rem 3rem 2rem !important;
+        line-height: 1.5;
+        font-style: italic;
+        margin-bottom: 3rem !important;
+        margin-top: 2rem !important;
+        border-left: 3px solid #BE9C7A;
+        white-space: pre-line;
+        text-align: left !important;
+      }
+      .modal-hand-image {
+        width: 180px;
+        height: auto;
+        display: block;
+        margin: 2rem auto 3rem auto;
+      }
   </style>
 </head>
 <body style={`background-image: url(${background.src});`}>
@@ -292,7 +397,7 @@ import background from '../../assets/images/background.png';
       <Image src={star} alt="star" class="star" />
       <Image src={star} alt="star" class="star two" />
       <Image src={star} alt="star" class="star three" />
-      <a href=""><Image src={thefeltsense} alt="thefeltsense" class="thefeltsense" /></a>
+      <a href="#" id="open-feltsense-modal"><Image src={thefeltsense} alt="thefeltsense" class="thefeltsense" /></a>
       <!-- Entry 1: Bell -->
       <div class="entry-object bell" data-entry="1">
           <div class="placeholder" ><Image src={bell} alt="bell" /></div>
@@ -356,6 +461,52 @@ import background from '../../assets/images/background.png';
         <div class="entry-body"></div>
       </div>
       <div class="return-prompt"><Image src={birdsign} alt="birdsign" /><div>Take a breath, return to garden</div></div>
+  </div>
+
+  <!-- Felt Sense Modal -->
+  <div id="feltsense-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-text">
+        <p class="modal-poem">
+From the porch
+The bees were in the purple trees
+in the front yard last week.
+Pollinating away.
+This week
+The bees seem to have moved on
+and the trees are exploding with green.<br>
+The breeze wafts over me
+and I am warm and cool
+and carrying a sadness.
+Something going away.
+Some saying goodbye.
+A loss.
+        </p>
+        
+        <p>
+The Garden a living shrine
+in devotional friendship with the Ally
+who teaches through images, through body, through the wisdom
+that comes before words.<br>
+As within, so without.
+My inner landscape draws my outer reality.
+How I meet my parts is how I meet the world.<br>
+Fear as doorway.
+Finding my fears is like finding exits from stuck patterns.
+Each terror is a teacher disguised.<br>
+Love creatives. The messy, the brilliant, the sad and mopey, the can't-get-started, the too-much-needing-to-be-seen.<br>
+All of us.
+        </p>
+        
+        <Image src={ohhand} alt="oh hand" class="modal-hand-image" />
+        
+        <p>
+Final knowing:<br>
+My greatest strength is the ability to feel discomfort all the way through. When I honor what I care about—especially what feels small or insignificant—I discover the path where freedom and form finally meet.
+        </p>
+      </div>
+    </div>
+    <div class="close-modal"><Image src={birdsign} alt="birdsign" /><div>Take a breath, return to garden</div></div>
   </div>
 
   <script>
@@ -475,7 +626,7 @@ with even that part of you.</div>
           5: {
               title: "My body rebels when I ignore myself",
               subtitle: "GERD, raccoons, and midnight messages",
-              content: `<p>The raccoon peers through the sliding door at 3 AM—my wild self watching my domesticated self ignore all the signals. My body sends increasingly urgent messages: GERD burns when I swallow my words, exhaustion weighs when I carry what isn't mine, the stomach churns with undigested experiences.</p>
+              content: `<p>The raccoon peers through the sliding door at 3 AM—my wild self watching my domesticated self ignore all the signals. My body sends increasingly urgent messages: GERD burns when I swallowed my words, exhaustion weighs when I carry what isn't mine, the stomach churns with undigested experiences.</p>
 
 <div class="poem">The body groans. 
 Relax relax relax. 
@@ -669,6 +820,28 @@ there's so much.</div>
           }
       `;
       document.head.appendChild(style);
+
+      // Modal logic for thefeltsense
+      const modal = document.getElementById('feltsense-modal');
+      const openBtn = document.getElementById('open-feltsense-modal');
+      const closeBtn = document.querySelector('.close-modal');
+      if (openBtn && modal && closeBtn) {
+        openBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+        closeBtn.addEventListener('click', function() {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      }
   </script>
 </body>
 </html> 
