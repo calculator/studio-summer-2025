@@ -15,7 +15,8 @@ import birdsign from '../../assets/images/birdsign.png';
 import star from '../../assets/images/star.png';
 import background from '../../assets/images/background.png';
 import ohhand from '../../assets/images/ohhand.png';
-import birdarrow from '../../assets/images/birdarrow.png';
+import beebranch from '../../assets/images/beebranch.png';
+import bees from '../../assets/images/bees.png';
 ---
 
 <html lang="en">
@@ -224,7 +225,6 @@ import birdarrow from '../../assets/images/birdarrow.png';
           white-space: pre-line;
       }
 
-
       /* Return prompt */
       .return-prompt {
           position: fixed;
@@ -319,7 +319,18 @@ import birdarrow from '../../assets/images/birdarrow.png';
           img.star {
               width: 4vw;
           }
-
+          
+          /* Hide return to garden text on mobile */
+          .return-prompt div,
+          .close-modal div {
+              display: none;
+          }
+          .return-prompt img,
+          .close-modal img {
+              width: 22vw !important;
+              opacity: 1 !important;
+             margin-right: 1rem !important;
+          }
       }
 
       .modal {
@@ -392,6 +403,13 @@ import birdarrow from '../../assets/images/birdarrow.png';
           opacity: 1;
       }
 
+      .modal-title {
+        font-size: 2rem;
+        font-weight: 500;
+        font-style: italic;
+        line-height: 1.1;
+        margin-top: 5vh;
+      }
       .modal-image {
         width: 100px;
         display: block;
@@ -401,7 +419,7 @@ import birdarrow from '../../assets/images/birdarrow.png';
         max-width: 520px;
         margin: 4rem auto;
         margin-top: 0;
-        padding-bottom: 4rem;
+        padding-bottom: 10rem;
       }
       .modal-text p {
         margin-bottom: 1.5rem;
@@ -409,17 +427,32 @@ import birdarrow from '../../assets/images/birdarrow.png';
         padding-right: 1.5rem;
         text-align: center;
         line-height: 1.6;
+        font-size: 1.1rem;
       }
       .modal-poem {
         background: #E9D0B7;
-        padding: 1rem 3rem 2rem !important;
+        padding: 0 4rem 2rem 5rem !important;
         line-height: 1.5;
         font-style: italic;
         margin-bottom: 3rem !important;
         margin-top: 2rem !important;
-        border-left: 3px solid #BE9C7A;
         white-space: pre-line;
         text-align: left !important;
+        position: relative;
+      }
+      .modal-poem .beebranch {
+        position: absolute;
+        top: -15px;
+        right: -30px;
+        width: 80px;
+        height: auto;
+      }
+      .modal-poem .bees {
+        position: absolute;
+        bottom: -20px;
+        left: -25px;
+        width: 50px;
+        height: auto;
       }
       .modal-hand-image {
         width: 180px;
@@ -500,13 +533,17 @@ import birdarrow from '../../assets/images/birdarrow.png';
       </div>
       <div class="return-prompt"><Image src={birdsign} alt="birdsign" /><div>Take a breath, return to garden</div></div>
   </div>
+  </div>
 
   <!-- Felt Sense Modal -->
   <div id="feltsense-modal" class="modal">
     <div class="modal-content">
+      <h1 class="modal-title">My Spring Garden</h1>
       <div class="modal-text">
         <p class="modal-poem">
-From the porch
+          <Image src={beebranch} alt="beebranch" class="beebranch" />
+          <Image src={bees} alt="bees" class="bees" />
+From the porch...<br>
 The bees were in the purple trees
 in the front yard last week.
 Pollinating away.
@@ -522,7 +559,7 @@ A loss.
         </p>
         
         <p>
-The Garden a living shrine
+The Garden is a living shrine
 in devotional friendship with the Ally
 who teaches through images, through body, through the wisdom
 that comes before words.<br><br>
