@@ -12,6 +12,8 @@ import flower from '../../assets/images/flower.png';
 import match from '../../assets/images/match.png';
 import thefeltsense from '../../assets/images/thefeltsense.png';
 import birdsign from '../../assets/images/birdsign.png';
+import star from '../../assets/images/star.png';
+import background from '../../assets/images/background.png';
 ---
 
 <html lang="en">
@@ -61,13 +63,32 @@ import birdsign from '../../assets/images/birdsign.png';
         height: auto;
       }
 
+      img.star {
+        position: absolute;
+        top: 1rem; 
+        left: 1rem;
+        width: 2vw;
+        height: auto;
+        opacity: 0.3;
+      }
+      img.two {
+        right: 1rem;
+        left: auto;
+      }
+
+      img.star.three {
+        bottom: 1rem; 
+        right: 1rem;
+        top: auto; left: auto;
+      }
+
       .entry-object {
           position: absolute;
           width: 140px;
           height: 140px;
           cursor: pointer;
           transition: all 0.4s ease-in-out;
-          opacity: 0.7;
+          opacity: 0.75;
           filter: blur(0);
           transform: scale(1.0);
       }
@@ -137,7 +158,7 @@ import birdsign from '../../assets/images/birdsign.png';
       }
 
       .entry-container {
-        max-width: 600px;
+        max-width: 500px;
         margin: 4rem auto;
       }
 
@@ -175,10 +196,10 @@ import birdsign from '../../assets/images/birdsign.png';
 
       :global(.poem) {
           background: #E9D0B7;
-          padding: 1.5rem 2rem;
+          padding: 1.5rem 3rem;
           line-height: 1.8;
           margin: 2rem 0;
-          border-left: 3px solid #999;
+          border-left: 3px solid #BE9C7A;
           white-space: pre-line;
       }
 
@@ -265,9 +286,12 @@ import birdsign from '../../assets/images/birdsign.png';
       }
   </style>
 </head>
-<body>
+<body style={`background-image: url(${background.src});`}>
     <!-- Garden View -->
     <div id="garden">
+      <Image src={star} alt="star" class="star" />
+      <Image src={star} alt="star" class="star two" />
+      <Image src={star} alt="star" class="star three" />
       <a href=""><Image src={thefeltsense} alt="thefeltsense" class="thefeltsense" /></a>
       <!-- Entry 1: Bell -->
       <div class="entry-object bell" data-entry="1">
