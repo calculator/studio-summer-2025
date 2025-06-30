@@ -15,6 +15,7 @@ import birdsign from '../../assets/images/birdsign.png';
 import star from '../../assets/images/star.png';
 import background from '../../assets/images/background.png';
 import ohhand from '../../assets/images/ohhand.png';
+import birdarrow from '../../assets/images/birdarrow.png';
 ---
 
 <html lang="en">
@@ -32,6 +33,13 @@ import ohhand from '../../assets/images/ohhand.png';
           box-sizing: border-box;
       }
 
+      html, body {
+          height: 100vh; /* Fallback for older browsers */
+          height: calc(var(--vh, 1vh) * 100);
+          margin: 0;
+          padding: 0;
+      }
+
       body {
           font-family: "gelica", sans-serif;
           font-weight: 400;
@@ -39,7 +47,6 @@ import ohhand from '../../assets/images/ohhand.png';
           letter-spacing: -0.03em;
           background: #d6b593;
           color: #634C36;
-          min-height: 100vh;
           overflow-x: hidden;
           transition: background 0.5s ease;
       }
@@ -48,12 +55,14 @@ import ohhand from '../../assets/images/ohhand.png';
 
       /* Garden View */
       #garden {
-          min-height: 100vh;
+          height: 100vh; /* Fallback for older browsers */
+          height: calc(var(--vh, 1vh) * 100);
           display: flex;
           align-items: center;
           justify-content: center;
           position: relative;
           padding: 2rem;
+          box-sizing: border-box;
       }
 
       img.thefeltsense {
@@ -168,10 +177,14 @@ import ohhand from '../../assets/images/ohhand.png';
           font-weight: 500;
           font-style: italic;
           line-height: 1.1;
+          margin-top: 5vh;
           margin-bottom: 0.5rem;
           margin-left: 5vw;
           opacity: 0;
           max-width: 450px;
+      }
+
+      .entry-title.animate {
           animation: revealText 1s ease 0.3s forwards;
       }
 
@@ -181,18 +194,25 @@ import ohhand from '../../assets/images/ohhand.png';
           color: #634c36b4;
           margin-bottom: 3rem;
           opacity: 0;
+      }
+
+      .entry-subtitle.animate {
           animation: revealText 1s ease 0.6s forwards;
       }
 
       .entry-body {
           line-height: 1.8;
           opacity: 0;
+      }
+
+      .entry-body.animate {
           animation: revealText 1s ease 0.9s forwards;
       }
 
       :global(.entry-body p) {
           margin-bottom: 1.5rem;
           padding-left: 1.5rem;
+          padding-right: 1.5rem;
       }
 
       :global(.poem) {
@@ -204,15 +224,6 @@ import ohhand from '../../assets/images/ohhand.png';
           white-space: pre-line;
       }
 
-      /* Breathing text effect */
-      :global(.breathe) {
-          animation: breathe 4s ease-in-out infinite;
-      }
-
-      :global(.@keyframes breathe) {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.02); }
-      }
 
       /* Return prompt */
       .return-prompt {
@@ -276,14 +287,39 @@ import ohhand from '../../assets/images/ohhand.png';
 
       /* Responsive */
       @media (max-width: 768px) {
-          .entry-object {
-              width: 60px;
-              height: 60px;
+          #garden {
+              padding: 1rem;
           }
+          
+          .entry-object {
+              width: 120px;
+              height: 120px;
+          }
+          
+          /* Mobile-specific positioning for better distribution */
+          .entry-object.bell { top: 5%; left: 20%; }
+          .entry-object.ladder { top: 8%; right: 14%; }
+          .entry-object.whip { top: 26%; left: 5%; }
+          .entry-object.balloonheart { top: 32%; right: 3%; }
+          .entry-object.raccoon { top: 32%; left: 40%; }
+          .entry-object.icehand { top: 50%; left: 13%; }
+          .entry-object.snail { top: 54%; right: 12%; left: auto; }
+          .entry-object.flower { top: 69%; left: 31%; }
+          .entry-object.match { top: 78%; right: 12%; left: auto; }
           
           .entry-content {
               padding: 2rem 1rem;
           }
+          
+          /* Smaller decorative elements on mobile */
+          img.thefeltsense {
+              width: 27vw;
+          }
+          
+          img.star {
+              width: 4vw;
+          }
+
       }
 
       .modal {
@@ -365,10 +401,12 @@ import ohhand from '../../assets/images/ohhand.png';
         max-width: 520px;
         margin: 4rem auto;
         margin-top: 0;
+        padding-bottom: 4rem;
       }
       .modal-text p {
         margin-bottom: 1.5rem;
         padding-left: 1.5rem;
+        padding-right: 1.5rem;
         text-align: center;
         line-height: 1.6;
       }
@@ -455,7 +493,7 @@ import ohhand from '../../assets/images/ohhand.png';
 
   <!-- Entry Content (hidden by default) -->
   <div class="entry-content" id="entryContent">
-      <h1 class="entry-title breathe"></h1>
+      <h1 class="entry-title"></h1>
       <p class="entry-subtitle"></p>
       <div class="entry-container">
         <div class="entry-body"></div>
@@ -487,13 +525,13 @@ A loss.
 The Garden a living shrine
 in devotional friendship with the Ally
 who teaches through images, through body, through the wisdom
-that comes before words.<br>
+that comes before words.<br><br>
 As within, so without.
 My inner landscape draws my outer reality.
-How I meet my parts is how I meet the world.<br>
+How I meet my parts is how I meet the world.<br><br>
 Fear as doorway.
 Finding my fears is like finding exits from stuck patterns.
-Each terror is a teacher disguised.<br>
+Each terror is a teacher disguised.<br><br>
 Love creatives. The messy, the brilliant, the sad and mopey, the can't-get-started, the too-much-needing-to-be-seen.<br>
 All of us.
         </p>
@@ -510,6 +548,17 @@ My greatest strength is the ability to feel discomfort all the way through. When
   </div>
 
   <script>
+      // Fix iOS viewport height issue
+      function setViewportHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+
+      // Set on load and resize
+      setViewportHeight();
+      window.addEventListener('resize', setViewportHeight);
+      window.addEventListener('orientationchange', setViewportHeight);
+
       // Entry content - full content from Nine Entry Points artifact
       const entries = {
           1: {
@@ -737,21 +786,54 @@ there's so much.</div>
           const entry = entries[entryKey];
           if (!entry) return;
           
-          // Update content
+          // Get elements
           const titleEl = document.querySelector('.entry-title');
           const subtitleEl = document.querySelector('.entry-subtitle');
           const bodyEl = document.querySelector('.entry-body');
+          const gardenEl = document.getElementById('garden');
+          const contentEl = document.getElementById('entryContent');
           
+          // Force complete animation reset by temporarily hiding elements
+          if (titleEl) {
+              (titleEl as HTMLElement).style.display = 'none';
+              titleEl.classList.remove('animate');
+          }
+          if (subtitleEl) {
+              (subtitleEl as HTMLElement).style.display = 'none';
+              subtitleEl.classList.remove('animate');
+          }
+          if (bodyEl) {
+              (bodyEl as HTMLElement).style.display = 'none';
+              bodyEl.classList.remove('animate');
+          }
+          
+          // Force reflow
+          if (contentEl) (contentEl as HTMLElement).offsetHeight;
+          
+          // Update content
           if (titleEl) titleEl.textContent = entry.title;
           if (subtitleEl) subtitleEl.textContent = entry.subtitle;
           if (bodyEl) bodyEl.innerHTML = entry.content;
           
           // Show entry, hide garden
-          const gardenEl = document.getElementById('garden');
-          const contentEl = document.getElementById('entryContent');
-          
           if (gardenEl) gardenEl.style.display = 'none';
           if (contentEl) contentEl.classList.add('active');
+          
+          // Restore display and add animations
+          requestAnimationFrame(() => {
+              if (titleEl) (titleEl as HTMLElement).style.display = '';
+              if (subtitleEl) (subtitleEl as HTMLElement).style.display = '';
+              if (bodyEl) (bodyEl as HTMLElement).style.display = '';
+              
+              // Force another reflow
+              if (contentEl) (contentEl as HTMLElement).offsetHeight;
+              
+              requestAnimationFrame(() => {
+                  if (titleEl) titleEl.classList.add('animate');
+                  if (subtitleEl) subtitleEl.classList.add('animate');
+                  if (bodyEl) bodyEl.classList.add('animate');
+              });
+          });
           
           // Scroll to top
           window.scrollTo(0, 0);
