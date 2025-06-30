@@ -11,6 +11,7 @@ import snail from '../../assets/images/snail.png';
 import flower from '../../assets/images/flower.png';
 import match from '../../assets/images/match.png';
 import thefeltsense from '../../assets/images/thefeltsense.png';
+import birdsign from '../../assets/images/birdsign.png';
 ---
 
 <html lang="en">
@@ -98,9 +99,9 @@ import thefeltsense from '../../assets/images/thefeltsense.png';
       .entry-object.ladder { top: 15%; right: 30%; }
       .entry-object.whip { top: 40%; left: 15%; }
       .entry-object.balloonheart { top: 35%; right: 18%; }
-      .entry-object.raccoon { top: 45%; left: 35%; }
+      .entry-object.raccoon { top: 40%; left: 35%; }
       .entry-object.icehand { top: 47%; right: 35%; }
-      .entry-object.snail { top: 69%; left: 20%; }
+      .entry-object.snail { top: 65%; left: 24%; }
       .entry-object.flower { top: 70%; right: 25%; }
       .entry-object.match { bottom: 10%; left: 45%; }
 
@@ -189,17 +190,39 @@ import thefeltsense from '../../assets/images/thefeltsense.png';
       /* Return prompt */
       .return-prompt {
           position: fixed;
-          bottom: 2rem;
-          right: 2rem;
+          bottom: 0;
+          right: 0;
           cursor: pointer;
           font-style: italic;
-          color: #666;
           opacity: 0;
           transition: opacity 0.3s ease;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+      }
+
+      .return-prompt img {
+          width: 10vw;
+          height: auto;
+          opacity: 0.5;
+          transition: opacity 0.3s ease;
+          
+      }
+      .return-prompt div {
+        width: 100px;
+        padding-top: 1rem;
+        padding-right: 1.5rem;
+        margin-left: -1rem;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
       }
 
       .return-prompt:hover {
-          color: #333;
+          color: #4a3522;
+      }
+      .return-prompt:hover img, .return-prompt:hover div {
+          opacity: 1;
       }
 
       .entry-content.active .return-prompt {
@@ -303,7 +326,7 @@ import thefeltsense from '../../assets/images/thefeltsense.png';
       <div class="entry-container">
         <div class="entry-body"></div>
       </div>
-      <div class="return-prompt">Take a breath to return to the garden</div>
+      <div class="return-prompt"><Image src={birdsign} alt="birdsign" /><div>Take a breath to return to the garden</div></div>
   </div>
 
   <script>
