@@ -308,7 +308,7 @@ import bees from '../../assets/images/bees.png';
           .entry-object.match { top: 78%; right: 12%; left: auto; }
           
           .entry-content {
-              padding: 2rem 1rem;
+              padding: 2rem 1rem 10rem 1rem;
           }
           
           /* Smaller decorative elements on mobile */
@@ -331,6 +331,7 @@ import bees from '../../assets/images/bees.png';
               opacity: 1 !important;
              margin-right: 1rem !important;
           }
+
       }
 
       .modal {
@@ -460,6 +461,12 @@ import bees from '../../assets/images/bees.png';
         display: block;
         margin: 2rem auto 3rem auto;
       }
+
+      @media (max-width: 768px) {
+        .modal-poem {
+            padding: 0 3rem 2rem 3rem !important;
+          }
+        }
   </style>
 </head>
 <body style={`background-image: url(${background.src});`}>
@@ -564,20 +571,20 @@ The Garden is a living shrine
 in devotional friendship with the Ally
 who teaches through images, through body, through the wisdom
 that comes before words.<br><br>
-As within, so without.
+<b>As within, so without</b><br>
 My inner landscape draws my outer reality.
 How I meet my parts is how I meet the world.<br><br>
-Fear as doorway.
+<b>Fear as doorway</b><br>
 Finding my fears is like finding exits from stuck patterns.
 Each terror is a teacher disguised.<br><br>
-Love creatives. The messy, the brilliant, the sad and mopey, the can't-get-started, the too-much-needing-to-be-seen.<br>
+<b>Love creatives</b><br> The messy, the brilliant, the sad and mopey, the can't-get-started, the too-much-needing-to-be-seen.<br>
 All of us.
         </p>
         
         <Image src={ohhand} alt="oh hand" class="modal-hand-image" />
         
         <p>
-Final knowing:<br>
+          <b>Trial knowing</b><br>
 My greatest strength is the ability to feel discomfort all the way through. When I honor what I care about—especially what feels small or insignificant—I discover the path where freedom and form finally meet.
         </p>
       </div>
